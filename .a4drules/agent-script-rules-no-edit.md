@@ -114,8 +114,8 @@ start_agent topic_selector:
         actions:
             ...
 
-# 8. TOPICS (at least one required)
-topic my_subagent:
+# 8. SUBAGENTS (at least one required)
+subagent my_topic:
     description: "..."
     reasoning:
         ...
@@ -227,10 +227,10 @@ variables:
 - **Action parameter types:** `string`, `number`, `boolean`, `object`, `date`, `timestamp`, `currency`, `id`, `list[T]`, `datetime`, `time`, `integer`, `long`
 
 
-### Topic Block Structure
+### Subagent Block Structure
 
 ```agentscript
-topic my_subagent:
+subagent my_topic:
     description: "What this topic handles"
 
     # Optional: Override system instructions for this topic
@@ -555,7 +555,7 @@ start_agent topic_selector:
             go_account_help: @utils.transition to @subagent.account_help
                 description: "Route to account help for account-related questions"
 
-topic order_info:
+subagent order_info:
     description: "Look up order status and provide updates to the customer"
 
     before_reasoning:
@@ -600,7 +600,7 @@ topic order_info:
                     is_displayable: True
                     filter_from_agent: False
 
-topic account_help:
+subagent account_help:
     description: "Help customers with account-related questions"
 
     reasoning:
